@@ -1,0 +1,5 @@
+{
+    "name": "molecular/phpibs",
+    "description": "HTTP interface between servers",
+    "require": {}
+}
