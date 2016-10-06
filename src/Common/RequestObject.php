@@ -20,8 +20,9 @@ namespace PHPIBS\Common;
  * --from
  * --date
  * --paramsEncode
- * --requestEncode
+ * --responseEncode
  * -content
+ * --namespace
  * --service
  * --method
  * --params
@@ -39,6 +40,7 @@ class RequestObject
     public function __construct()
     {
         $this->header = new Header();
+        $this->content = new Content();
     }
 
 }

@@ -16,7 +16,7 @@ class Header
     public $from;
     public $date;
     public $paramsEncode;
-    public $requestEncode;
+    public $responseEncode;
     /**
      * Header constructor.
      */
@@ -27,6 +27,6 @@ class Header
         $this->from = $_SERVER['SERVER_NAME'];
         $this->date = date('Y-m-d H:i:s');
         $this->paramsEncode = SuportedEncode::SERIAL;
-        $this->requestEncode = SuportedEncode::SERIAL;
+        $this->responseEncode = SuportedEncode::SERIAL;
     }
 }
