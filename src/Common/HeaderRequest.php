@@ -9,7 +9,7 @@
 namespace PHPIBS\Common;
 
 
-class Header
+class HeaderRequest
 {
     public $authType;
     public $auth;
@@ -25,7 +25,7 @@ class Header
         $this->authType = AuthType::NONE;
         $this->auth = new Auth();
         $this->from = $_SERVER['SERVER_NAME'];
-        $this->date = date('Y-m-d H:i:s');
+        $this->date = date('Y-m-d H:i:s.u');
         $this->paramsEncode = SuportedEncode::SERIAL;
         $this->responseEncode = SuportedEncode::SERIAL;
     }

@@ -9,7 +9,7 @@
 namespace PHPIBS\Common;
 
 
-class Content
+class ContentRequest
 {
     public $namespace;
     public $service;
@@ -20,6 +20,9 @@ class Content
      */
     public function __construct()
     {
-
+        $this->namespace = '';
+        $this->service = '';
+        $this->method = '';
+        $this->params = '';
     }
 }

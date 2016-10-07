@@ -9,6 +9,7 @@
 namespace PHPIBS;
 
 
+use PHPIBS\Common\ResponseObject;
 use PHPIBS\Server\Handle\Input\InputHandleInterface;
 
 /**
@@ -32,11 +33,22 @@ class Server
         $this->inputHandle = $inputHandle;
     }
 
-
-    public function run(){
+    public function executeMethod()
+    {
         $requestObject = $this->inputHandle->getObject();
-
+        $className = $requestObject->getClassFullName();
+        $class = new $className;
+        return call_user_func_array([$class, $requestObject->getMethod()], [$requestObject->getDecodedParams()]);
     }
 
+    /**
+     * @return ResponseObject
+     */
+    public function run()
+    {
+        $response = new ResponseObject();
+        $response->setResponse($this->executeMethod());
+        return $response;
+    }
 
 }

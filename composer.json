@@ -1,5 +1,7 @@
 {
     "name": "molecular/phpibs",
     "description": "HTTP interface between servers",
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    }
 }
