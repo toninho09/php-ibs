@@ -6,7 +6,7 @@
  * Time: 00:58
  */
 
-namespace PHPIBS\Common\encode;
+namespace PHPIBS\Common\Encode;
 
 
 use Exception;

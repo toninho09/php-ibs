@@ -6,7 +6,7 @@
  * Time: 22:09
  */
 
-namespace PHPIBS\Common\encode;
+namespace PHPIBS\Common\Encode;
 
 
 use PHPIBS\Common\Encode\Handle\JsonEncode;
