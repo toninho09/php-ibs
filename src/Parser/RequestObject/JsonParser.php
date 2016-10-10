@@ -24,7 +24,7 @@ class JsonParser implements ResponseObjectParseInterface
         $responseObject->setDate($response->header->date);
         $responseObject->setResponseEncode($response->header->responseEncode);
         $responseObject->setFrom($response->header->from);
-        $responseObject->setResponse($response->content->response);
+        $responseObject->content->response = $response->content->response;
         if($response->exception->hasException){
             $responseObject->setExeption(new \Exception($response->exception->exceptionMessage,$response->exception->exceptionCode));
         }
