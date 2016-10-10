@@ -24,7 +24,7 @@ class HeaderRequest
     {
         $this->authType = AuthType::NONE;
         $this->auth = new Auth();
-        $this->from = $_SERVER['SERVER_NAME'];
+        $this->from = isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:'';
         $this->date = date('Y-m-d H:i:s.u');
         $this->paramsEncode = SuportedEncode::SERIAL;
         $this->responseEncode = SuportedEncode::SERIAL;

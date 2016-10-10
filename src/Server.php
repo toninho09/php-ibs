@@ -24,6 +24,7 @@ class Server
      * @var InputHandleInterface
      */
     protected $inputHandle;
+    protected $requestObject;
 
     /**
      * @param InputHandleInterface $inputHandle
@@ -31,14 +32,19 @@ class Server
     public function setInputHandle(InputHandleInterface $inputHandle)
     {
         $this->inputHandle = $inputHandle;
+        $this->requestObject = null;
+    }
+
+    public function setRequestObject($rest){
+        $this->requestObject = $rest;
     }
 
     public function executeMethod()
     {
-        $requestObject = $this->inputHandle->getObject();
+        $requestObject = !empty($this->requestObject)?$this->requestObject : $this->inputHandle->getObject();
         $className = $requestObject->getClassFullName();
         $class = new $className;
-        return call_user_func_array([$class, $requestObject->getMethod()], [$requestObject->getDecodedParams()]);
+        return call_user_func_array([$class, $requestObject->getMethod()], $requestObject->getDecodedParams());
     }
 
     /**

@@ -21,6 +21,6 @@ class HeaderResponse
     {
         $this->responseEncode = SuportedEncode::SERIAL;
         $this->date = date('Y-m-d H:i:s.u');
-        $this->from = $_SERVER['SERVER_NAME'];
+        $this->from = isset($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:'';
     }
 }

@@ -3,5 +3,11 @@
     "description": "HTTP interface between servers",
     "require": {
         "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPIBS\\": "src/",
+            "Tests\\": "tests/"
+        }
     }
 }

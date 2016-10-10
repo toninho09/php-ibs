@@ -57,7 +57,7 @@ class ResponseObject
 
     public function setResponse($response)
     {
-        $this->content->response = $response;
+        $this->content->response = $this->encode->encode($this->header->responseEncode, $response);
     }
 
     public function setExeption(\Exception $exception)
@@ -72,4 +72,7 @@ class ResponseObject
         return $this->encode->decode($this->header->responseEncode,$this->content->response);
     }
 
+    public function toJson(){
+        return json_encode($this);
+    }
 }
