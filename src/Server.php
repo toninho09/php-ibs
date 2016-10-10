@@ -46,6 +46,10 @@ class Server
         $class = new $className;
         return call_user_func_array([$class, $requestObject->getMethod()], $requestObject->getDecodedParams());
     }
+    
+    private function convertStdClass($object){
+        return json_decode(json_encode($object));
+    }
 
     /**
      * @return ResponseObject
@@ -53,7 +57,7 @@ class Server
     public function run()
     {
         $response = new ResponseObject();
-        $response->setResponse($this->executeMethod());
+        $response->setResponse($this->convertStdClass($this->executeMethod()));
         return $response;
     }
 

@@ -30,7 +30,8 @@ class Client
 
     public function sendRequest(RequestObject $request){
         $response = $this->client->post($this->endpoint,[
-            'json'=>$request->toJson()
+            'json'=>$request,
+            'verify' => false
         ]);
 
         return $this->parser->parser($response->getBody());
