@@ -6,7 +6,7 @@
  */
 
 namespace PHPIBS\Common;
-use PHPIBS\Common\encode\Encoder;
+use PHPIBS\Common\Encode\Encoder;
 
 
 /**
